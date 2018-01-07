@@ -5,37 +5,28 @@ export default {
 	entry              : './src/renderer/index.js',
 	outputPath         : './app/pages',
 	define             : {
-		'$dirname': '__dirname'
+		'$dirname': __dirname
 	},
 	disableCSSModules  : false,
+	html               : {
+		template: './src/renderer/index.ejs'
+	},
 	sass               : {
-		sourceMap   : process.env.NODE_ENV === 'development',
 		includePaths: ['node_modules', 'src/renderer/style']
 	},
-	theme: {
-		"primary-color": "#f25d8e",
+	theme              : {
+		'primary-color': '#f25d8e'
 	},
 	extraPostCSSPlugins: [
-		pxtorem({
-			        rootValue    : 16,
-			        propWhiteList: []
-		        })
+		pxtorem({rootValue: 16})
 	],
 	extraBabelPlugins  : [
-		'transform-runtime',
+		'transform-decorators-legacy',
 		'lodash',
-		[
-			'import',
-			[
-				{
-					libraryName: 'antd',
-					style      : true
-				}
-			]
-		]
+		['import', {libraryName: 'antd', libraryDirectory: 'es', style: true}]
 	],
-	autoprefixer       : {
-		browsers: ['iOS >= 8', 'Android >= 4']
+	externals          : {
+		'electron': 'require("electron")',
 	},
 	env                : {
 		development: {
@@ -50,5 +41,6 @@ export default {
 					{preset: ['default', {discardComments: {removeAll: true}}]})
 			]
 		}
-	}
+	},
+	ignoreMomentLocale : true
 };

@@ -18,6 +18,9 @@ export function getCount() {
 }
 
 export function getPath() {
-  const path = `file://${join($dirname, '..', 'pages')}/index.html`;
+  let path = `file://${join($dirname, '..', 'pages')}/index.html`;
+  if (is.dev()) {
+    path = 'http://127.0.0.1:8000/index.html';
+  }
   return path;
 }

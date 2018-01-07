@@ -1,11 +1,11 @@
-# Bilibili Mini-Clinet
+# Bilibili Mini-Client
 
 ![](https://github.com/canisminor1990/bilibili-client/blob/master/doc/preview-0.png?raw=true)
 
 [![](https://img.shields.io/github/release/canisminor1990/bilibili-client.svg)](https://github.com/canisminor1990/bilibili-client)
 [![](https://img.shields.io/github/downloads/canisminor1990/bilibili-client/total.svg)](https://github.com/canisminor1990/bilibili-client/releases)
 
-📺 可以摸鱼的 Bilibili Mini-Clinet # 支持Mac/Win
+📺 可以摸鱼的 Bilibili Mini-Client # 支持Mac/Win
 
 ## Features
 
@@ -17,30 +17,33 @@
 - [ ] 快捷键
 - [ ] ...
 
-## Preview
-
-![](https://github.com/canisminor1990/bilibili-client/blob/master/doc/preview-1.png?raw=true)
-![](https://github.com/canisminor1990/bilibili-client/blob/master/doc/preview-2.png?raw=true)
-![](https://github.com/canisminor1990/bilibili-client/blob/master/doc/preview-3.png?raw=true)
-
 ## Download
 
 点击下方按钮前往releases，下载最新版 `bilibili.app.zip`
 
 [![](https://img.shields.io/badge/bilibili-download-ff69b4.svg?style=for-the-badge)](https://github.com/canisminor1990/bilibili-client/releases)
 
+## Preview
+
+![](https://github.com/canisminor1990/bilibili-client/blob/master/doc/preview-1.png?raw=true)
+![](https://github.com/canisminor1990/bilibili-client/blob/master/doc/preview-2.png?raw=true)
+![](https://github.com/canisminor1990/bilibili-client/blob/master/doc/preview-3.png?raw=true)
+
 ## ChangeLog
 
 |Date|Versiton|Changelog|
 |---|---|---|
-|2018.1.3|v1.0.1|添加动态/兼容番剧/修复分P等Bug|
-|2018.1.2|v1.0.0|Early Access|
+|2018.1.7|v1.0.2-fix|📺 修复Win下无法嵌入样式bug|
+|2018.1.6|v1.0.2|📺 调整样式/修复动态bug/重构preload结构|
+|2018.1.3|v1.0.1|📺 添加动态/兼容番剧/修复分P等bug|
+|2018.1.2|v1.0.0|📺 Early Access|
 
 ## Develop
 
 `electron` `react` `dva` `roadhog` `webpack`
 
-- 结构参考 [dva-boilerplate-electron](https://github.com/sorrycc/dva-boilerplate-electron)
+- [dva-boilerplate-electron](https://github.com/sorrycc/dva-boilerplate-electron)
+- [Electron 架构](https://github.com/sorrycc/blog/issues/13)
 
 ### Directory Structure
 
@@ -61,7 +64,9 @@
 
 ### Dev
 
-```sh
+> `$ yarn root` 因为采用 [Two-Package.json Structure](https://www.electron.build/tutorials/two-package-structure)，需要安装二次依赖
+
+```bash
 # 窗口一：watch roadhog => pages / webpack => main
 $ yarn dev
 # 窗口二：start electron
@@ -70,7 +75,7 @@ $ yarn start
 
 ### Build
 
-```sh
+```bash
 $ yarn build
 # MacOS
 $ yarn pack:osx
@@ -78,9 +83,18 @@ $ yarn pack:osx
 $ yarn pack:win
 ```
 
+### Pack
+
+> issue: 目前使用yarn安装依赖，pack后会出现丢包，npm i 无此问题 🤔 ... [link](https://github.com/electron-userland/electron-packager/issues/774)
+
+```bash
+# pack:osx && pack:win
+$ yarn pack
+```
+
 ## License
 
-[MIT](https://tldrlegal.com/license/mit-license)
+- [MIT](https://tldrlegal.com/license/mit-license)
 
 ## Copyright
 
